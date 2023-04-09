@@ -1,3 +1,5 @@
+import sys
+
 def check_win(pile):
     #Returns true if either of pile is empty
     if(pile[0] == 0 or pile[1] == 0):
@@ -108,21 +110,6 @@ def minmax_ab(player,pile,alpha=-10000000, beta=10000000):
     #print('best',best)
     return [v,best]
 
-def initial_input():
-    pile = []
-    red = int(input("Number of red marbles:"))
-    blue = int(input("Number of blue marbles:"))
-    player = str(input("Enter the initial player:"))
-
-    pile.append(red)
-    pile.append(blue)
-
-    print()
-    print("Game begins!")
-    print("Initial pile status:",pile)
-
-    return player,pile
-
 def human_play(pile):
     #Checks if the human is a winner at every call
     if(check_win(pile)):
@@ -131,7 +118,6 @@ def human_play(pile):
         print("Human wins!")
         print("Human score:",final_sore)
     else:
-        print()
         print("It's your turn!")
         print("Marble count:")
         print("Red:",pile[0])
@@ -139,17 +125,25 @@ def human_play(pile):
         print("Enter 'red' or 'blue' to remove a marble from that pile:")
         move_pile = str(input("Pile colour:"))
         print()
+        flag = 1
         #Updates the pile status
-        if(move_pile == "red"):
-            pile[0] = pile[0] - 1
-            print("You removed a red marble")
-        elif(move_pile == "blue"):
-            pile[1] = pile[1] - 1
-            print("You removed a blue marble")
-        else:
-            print("Invalid selection!")
+        while(flag == 1):
+            if(move_pile == "red"):
+                flag = 0
+                pile[0] = pile[0] - 1
+                print("You removed a red marble")
+            elif(move_pile == "blue"):
+                flag = 0
+                pile[1] = pile[1] - 1
+                print("You removed a blue marble")
+            else:
+                print("Invalid selection!")
+                print()
+                move_pile = str(input("Pile colour:"))
+                print()
 
         print("Pile status after your turn:",pile)
+        print()
         #Calls computer to play as it's turn
         computer_play(pile)
 
@@ -162,7 +156,7 @@ def computer_play(pile):
         print("Computer score:",final_sore)
     else:
         score,best_move = minmax_ab('computer',pile)
-        print()
+        print("COMPUTER TURN!")
         if(pile[0] != best_move[0]):
             print("Computer has selected RED pile and removed a marble")
         if(pile[1] != best_move[1]):
@@ -177,11 +171,27 @@ def computer_play(pile):
     #print(best_move)
 
 def main():
-    player, pile = initial_input()
+    pile = []
+    player = 'computer'
+
+    red = int(sys.argv[1])
+    blue = int(sys.argv[2])
+    player = str(sys.argv[3])
+
+    pile.append(red)
+    pile.append(blue)
+
+    print()
+    print("Game begins!")
+    print("Initial pile status:",pile)
+    print()
+    
     if(player == 'computer'):
         computer_play(pile)
     if(player == 'human'):
         human_play(pile)
 
-main()
+if __name__ == "__main__":
+    main()
+
 #print(minmax_ab('computer',pile))
