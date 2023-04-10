@@ -172,11 +172,15 @@ def computer_play(pile):
 
 def main():
     pile = []
-    player = 'computer'
 
-    red = int(sys.argv[1])
-    blue = int(sys.argv[2])
-    player = str(sys.argv[3])
+    if(len(sys.argv) == 3):
+        red = int(sys.argv[1])
+        blue = int(sys.argv[2])
+        player = 'computer'
+    if(len(sys.argv) == 4):
+        red = int(sys.argv[1])
+        blue = int(sys.argv[2])
+        player = str(sys.argv[3])
 
     pile.append(red)
     pile.append(blue)

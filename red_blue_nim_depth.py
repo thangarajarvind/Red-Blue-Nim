@@ -117,7 +117,7 @@ def minmax_ab(player,pile,depth,alpha=-10000000, beta=10000000):
                 v = temp_v
                 best = i
             #Alpha Beta pruning
-            if(temp_v >= beta):
+            if(alpha >= beta):
                 break
             if(alpha < temp_v):
                 alpha = temp_v
@@ -134,7 +134,7 @@ def minmax_ab(player,pile,depth,alpha=-10000000, beta=10000000):
                 v = temp_v
                 best = i
             #Alpha Beta pruning
-            if(temp_v <= alpha):
+            if(beta <= alpha):
                 break
             if(beta > temp_v):
                 beta = temp_v
@@ -205,27 +205,34 @@ def computer_play(pile,depth):
 
 def main():
     pile = []
-    player = 'computer'
 
-    red = int(sys.argv[1])
-    blue = int(sys.argv[2])
-    player = str(sys.argv[3])
-    depth = int(sys.argv[4])
+    if(len(sys.argv) == 4):
+        red = int(sys.argv[1])
+        blue = int(sys.argv[2])
+        player = 'computer'
+        depth = int(sys.argv[3])
+    if(len(sys.argv) == 5):
+        red = int(sys.argv[1])
+        blue = int(sys.argv[2])
+        player = str(sys.argv[3])
+        depth = int(sys.argv[4])
 
-    pile.append(red)
-    pile.append(blue)
+    if(depth == 0):
+        print("Depth can't be zero! Retry again.")
 
-    print()
-    print("Game begins!")
-    print("Initial pile status:",pile)
-    print()
-    
-    if(player == 'computer'):
-        computer_play(pile,depth)
-    if(player == 'human'):
-        human_play(pile,depth)
+    else:
+        pile.append(red)
+        pile.append(blue)
+
+        print()
+        print("Game begins!")
+        print("Initial pile status:",pile)
+        print()
+        
+        if(player == 'computer'):
+            computer_play(pile,depth)
+        if(player == 'human'):
+            human_play(pile,depth)
 
 if __name__ == "__main__":
     main()
-
-#print(minmax_ab('computer',pile))
