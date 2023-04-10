@@ -4,15 +4,16 @@ Net id:  axt4888
 
 Programming language used: Python (3.10.2)
 
-Code structure:
+CODE STRUCTURE:
+
 DEPTH LIMITED SEARCH is implemented in a separate code file.
 
-There are 2 files, red_blue_nim.py (and) red_blue_nim_depth.py
+There are 2 files, red_blue_nim_no_depth.py (and) red_blue_nim.py
 
-red_blue_nim.py - Has the implementation for minmax algo with alpha beta pruning, but NOT 
+red_blue_nim_no_depth.py - Has the implementation for minmax algo with alpha beta pruning, but NOT 
 with depth limited implantation. It accepts 3 arguments, namely in order: red, blue, player.
 
-red_blue_nim_depth.py - Has the implementation for minmax algo with alpha beta pruning, 
+red_blue_nim.py - Has the implementation for minmax algo with alpha beta pruning, 
 and ALSO with depth limited implantation. It accepts 4 arguments, namely in order: red, blue, 
 player, depth.
 
@@ -33,6 +34,7 @@ move to make and modifies the pile structure accordingly.
 main: Obtains the input from the terminal and initiates the pile structure and calls in for the 
 appropriate player based on the input obtained.
 
-How to run the code:
-As given in the assignment instruction, it can be run from terminal, and as stated above, red_blue_nim.py accepts 3 arguments and red_blue_nim_depth.py accepts 4 arguments(as it works on depth limited search)
+HOW TO RUN THE CODE:
+
+As given in the assignment instruction, it can be run from terminal, and as stated above, red_blue_nim_no_depth.py accepts 3 arguments and red_blue_nim.py accepts 4 arguments(as it works on depth limited search)
 Also, as per instruction, if player is not defined in either of the code, it would set as computer as the first player by default. 
