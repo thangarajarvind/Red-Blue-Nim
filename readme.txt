@@ -13,8 +13,7 @@ red_blue_nim.py - Has the implementation for minmax algo with alpha beta pruning
 and ALSO with depth limited implantation. It accepts 4 arguments, namely in order: red, blue, 
 player, depth.
 
-Description about the logic used for depth limited minmax is explained in the other document 
-that is attached along with this submission.
+Description about the logic used for depth limited minmax is explained in the other document .
 
 The code structure has multiple function blocks, who's their description is given below:
 
@@ -32,5 +31,5 @@ appropriate player based on the input obtained.
 
 HOW TO RUN THE CODE:
 
-As given in the assignment instruction, it can be run from terminal, and as stated above, red_blue_nim_no_depth.py accepts 3 arguments and red_blue_nim.py accepts 4 arguments(as it works on depth limited search)
-Also, as per instruction, if player is not defined in either of the code, it would set as computer as the first player by default. 
+As stated above, red_blue_nim_no_depth.py accepts 3 arguments and red_blue_nim.py accepts 4 arguments(as it works on depth limited search)
+If player is not defined in either of the code, it would set as computer as the first player by default. 
