@@ -1,7 +1,3 @@
-Name:  Arvind Thangaraj
-UTA id: 1002114888
-Net id:  axt4888
-
 Programming language used: Python (3.10.2)
 
 CODE STRUCTURE:
